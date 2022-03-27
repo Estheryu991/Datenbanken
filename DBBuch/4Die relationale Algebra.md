@@ -29,3 +29,13 @@ Basisrelation der relationalen Algebra. Offensichtlich ist die Relation {(a)} ei
 des Schemas (A).
 Anmerkung 4.1. Wir erinnern uns, dass der Wert Null zu jeder Domäne gehört. Somit
 gilt für jedes Attribut A, dass die konstante Relation {(Null)} eine Instanz von (A) ist.
+
+
+.......
+{}
+
+# Query 7
+Welches ist die durchschnittliche Dauer der Filme pro Jahr?
+Analog zu den obigen Beispielen wollen wir dazu den Ausdruck
+γ (Filme, (Jahr), avg, Dauer)
+verwenden. Dieser liefert als Resultat
