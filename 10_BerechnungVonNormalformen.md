@@ -271,34 +271,29 @@ chen funktionalen Abhängigkeiten besteht. Wir könnten nach der Berechnung vonM
 
 202 10 Berechnung von Normalformen
  MU′(F2) := 􏰊{BuchId} → {Autor,Titel}, {Autor} → {Jahrgang}􏰋
-und diese Menge als Input für den NF3-Algorithmus verwenden. Dies würde etwas bessere
-Ergebnisse liefern.
-Anmerkung 10.25. Es gibt eine weitere Konstellation, in welcher der 3NF Algorithmus nicht zu einer optimalen Zerlegung führt. Wir betrachten nochmals das Schema
-S3 = (Stadt,Str,PLZ) 􏰊􏰋
+und diese Menge als Input für den NF3-Algorithmus verwenden. Dies würde etwas bessere Ergebnisse liefern.
+Anmerkung 10.25. Es gibt eine weitere Konstellation, in welcher der 3NF Algorithmus nicht zu einer optimalen Zerlegung führt. Wir betrachten nochmals das Schema S3 = (Stadt,Str,PLZ) 
 F3 = {Stadt, Str} → {PLZ}, {PLZ} → {Stadt} . Der Algorithmus liefert die Zerlegung
-􏰊􏰋
+
 (Stadt, Str, PLZ), (Stadt, PLZ) .
-Diese Zerlegung erfüllt zwar die 3NF Bedingungen, ist aber nicht optimal. Offensichtlich ist das Schema (Stadt, PLZ) im Schema (Stadt, Str, PLZ) enthalten und damit über- flüssig. Wir könnten den Algorithmus verbessern, indem wir am Ende noch überprüfen, ob es S′,S′′ ∈ Z gibt, so dass S′ 􏰆 S′′ gilt. Falls dies der Fall ist, entfernen wir S′ aus Z .
+Diese Zerlegung erfüllt zwar die 3NF Bedingungen, ist aber nicht optimal. 
+
+Offensichtlich ist das Schema (Stadt, PLZ) im Schema (Stadt, Str, PLZ) enthalten und damit über- flüssig. Wir könnten den Algorithmus verbessern, indem wir am Ende noch überprüfen, ob es S′,S′′ ∈ Z gibt, so dass S′ 􏰆 S′′ gilt. Falls dies der Fall ist, entfernen wir S′ aus Z .
 Beachte, dass in diesem Beispiel die funktionale Abhängigkeit
-{PLZ} → {Stadt} (10.2)
-für beide Schemata der Zerlegung gilt. Das heisst, sowohl
-(Stadt, Str, PLZ) als auch (Stadt, PLZ)
-müssen (10.2) erfüllen. Damit können wir (Stadt,PLZ) aus der Zerlegung entfernen, ohne dass Abhängigkeiten verloren gehen.
-Beispiel 10.26. In diesem Beispiel zeigen wir, weshalb wir möglicherweise ein Schema K , welches ein Schlüssel für S ist, zu der Zerlegung in 3NF hinzufügen müssen. Wir betrachten ein Schema
+{PLZ} → {Stadt} (10.2) für beide Schemata der Zerlegung gilt. Das heisst, sowohl
+(Stadt, Str, PLZ) als auch (Stadt, PLZ) müssen (10.2) erfüllen. Damit können wir (Stadt,PLZ) aus der Zerlegung entfernen, ohne dass Abhängigkeiten verloren gehen. Beispiel 10.26. In diesem Beispiel zeigen wir, weshalb wir möglicherweise ein Schema K , welches ein Schlüssel für S ist, zu der Zerlegung in 3NF hinzufügen müssen. Wir betrachten ein Schema
 S := ( A, B, C ) mit der Menge von funktionalen Abhängigkeiten
 F := { B → C }.
 
-Weiterführende Literatur 203
- Wir wenden nun den Algorithmus zur Zerlegung in 3NF an. Nach dem ersten Schritt erhalten wir
-􏰊􏰋
-Z = {B,C} ,
-da B → C die einzige funktionale Abhängigkeit in F ist. Wir sehen, dass die Menge Z nach diesem ersten Schritt noch nicht alle Attribute aus S abdeckt. Die Menge Z ist also noch keine Zerlegung von S . Der Algorithmus korrigiert dies im 2. Schritt, indem er noch einen Schlüssel K für S zu Z hinzufügt. Der einzige Schlüssel für S ist {A, B} und wir erhalten somit
-􏰊􏰋
-Z= {B,C},{A,B} als 3NF–Zerlegung des Schemas S .
+## Weiterführende Literatur 203 
+
+Wir wenden nun den Algorithmus zur Zerlegung in 3NF an. Nach dem ersten Schritt erhalten wir Z = {B,C} , da B → C die einzige funktionale Abhängigkeit in F ist. Wir sehen, dass die Menge Z nach diesem ersten Schritt noch nicht alle Attribute aus S abdeckt. Die Menge Z ist also noch keine Zerlegung von S . Der Algorithmus korrigiert dies im 2. Schritt, indem er noch einen Schlüssel K für S zu Z hinzufügt. Der einzige Schlüssel für S ist {A, B} und wir erhalten somit Z= {B,C},{A,B} als 3NF–Zerlegung des Schemas S .
+
 Mit diesem Beispiel beschliessen wir dieses Buch und hoffen, dass Sie, liebe Leserin- nen und Leser, das Wissen über relationale Datenbanken persistent gespeichert haben und effizient darauf zugreifen können.
 Weiterführende Literatur1
+
 1. Armstrong, W.W.: Dependency structures of data base relationships. In: IFIP Congress, S. 580–583 (1974)
 2. Bernstein, P.A.: Synthesizing third normal form relations from functional dependencies. ACM Trans. Database Syst. 1(4), 277–298 (1976). https://doi.org/10.1145/320493.320489
 3. Biskup, J., Dayal, U., Bernstein, P.A.: Synthesizing independent database schemas. In: Procee- dings of the 1979 ACM SIGMOD International Conference on Management of Data, SIGMOD ’79, 143–151. ACM (1979). https://doi.org/10.1145/582095.582118
-4. Tsou, D.M., Fischer, P.C.: Decomposition of a relation scheme into Boyce-Codd normal form. SIGACT News 14(3), 23–29 (1982). https://doi.org/10.1145/990511.990513
-  1Armstrong [1] präsentierte seinen Kalkül zur Beschreibung von funktionalen Abhängigkeiten 1974. Bernstein [2] und Biskup et al. [3] studieren Synthesealgorithmen, um verlustfreie und abhängigkeitserhaltende Zerlegungen in dritte Normalform zu erzeugen. Die Dekomposition eines Schemas in Boyce-Codd Normalform wird unter anderem von Tsou und Fischer [4] untersucht.
+6. Tsou, D.M., Fischer, P.C.: Decomposition of a relation scheme into Boyce-Codd normal form. SIGACT News 14(3), 23–29 (1982). https://doi.org/10.1145/990511.990513
+  1 Armstrong [1] präsentierte seinen Kalkül zur Beschreibung von funktionalen Abhängigkeiten 1974. Bernstein [2] und Biskup et al. [3] studieren Synthesealgorithmen, um verlustfreie und abhängigkeitserhaltende Zerlegungen in dritte Normalform zu erzeugen. Die Dekomposition eines Schemas in Boyce-Codd Normalform wird unter anderem von Tsou und Fischer [4] untersucht.
