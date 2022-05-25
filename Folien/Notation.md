@@ -10,3 +10,11 @@ falls
 gilt.
 
 Wir schauen nicht nur die Menge an. 
+
+---
+Sei S = (A1, . . . , An). Zur Vereinfachung der Notation schreiben wir
+πS(R) anstelle von πA1,...,An
+(R) .
+Wir werden die Gleichheit von Relationen bezüglich eines Schemas S
+verwenden. Wir setzen:
+R =S T :⇐⇒ πS(R) = πS(T)
