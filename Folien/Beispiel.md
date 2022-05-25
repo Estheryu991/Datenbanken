@@ -19,3 +19,16 @@ $${Stadt, Str} → {PLZ}, {PLZ} → {Stadt}$$
 	
 von funktionalen Abhängigkeiten. Mit der obigen Definition folgt sofort,
 dass die Attributmengen {Stadt, Str} und {Str, PLZ} Schlüssel von S sind.
+
+
+A := (BId, Name, Adresse, Datum) wird zerlegt in {A1, A2} mit
+$$ A1 := (BId, Name, Datum) $$
+$$ A2 := (Name, Adresse) $$.
+
+Zu A gehört die Menge von funktionalen Abhängigkeiten
+$$ F := {Bid} → {Name, Adresse, Datum}, {Name} → {Adresse}$$.
+	
+Wir finden A1 ∩ A2 = {Name}. Also gilt
+$$ A1 ∩ A2 → A2 ∈ F_+ $$
+
+Es folgt, dass die Zerlegung verlustfrei ist.
